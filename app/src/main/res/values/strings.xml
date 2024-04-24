@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">AlkeWallet</string>
+    <string name="el_lugar">El lugar más seguro para tu dinero</string>
+    <string name="tiene_cuenta">Ya tiene cuenta?</string>
+    <string name="crear_cuenta">Crear cuenta</string>
+    <string name="crear_nueva_cuenta">Crear cuenta nueva</string>
+    <string name="logea_y_comienza">Logea y comienza a transferir!</string>
+    <string name="nombre">Nombre</string>
+    <string name="ingresa_tu_nombre">Ingresa tu nombre</string>
+    <string name="apellido">Apellido</string>
+    <string name="ingresa_tu_apellido">Ingresa tu apellido</string>
+    <string name="email">Email</string>
+    <string name="ingresa_tu_mail">Ingresa tu email</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="ingresa_tu_contrasena">Ingresa tu contraseña</string>
+    <string name="reingresar_contrasena">Reingresar Contraseña</string>
+    <string name="olvidaste_tu_contrasena">Olvidaste tu contraseña?</string>
+    <string name="login">Login</string>
+    <string name="registrarse_y_comenzar">Registrarse y comenzar a transferir</string>
+    <string name="enviar_dinero">Enviar Dinero</string>
+    <string name="ingresar_dinero">Ingresar Dinero</string>
+    <string name="home">Home</string>
+    <string name="perfil">Perfil</string>
+
+
+</resources>

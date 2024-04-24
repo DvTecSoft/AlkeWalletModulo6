@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignupPageActivity"
+    android:background="@drawable/fondo_avion">
+
+    <!-- Título -->
+    <TextView
+        android:id="@+id/text_registrarse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="30dp"
+        android:width="315sp"
+        android:fontFamily="@font/jua"
+        android:text="@string/registrarse_y_comenzar"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Nombre -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_nombre"
+        android:layout_width="315dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="170dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/lbl_nombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/jua"
+            android:text="@string/nombre"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt_nombre"
+            android:layout_width="0dp"
+            android:layout_height="49dp"
+            android:layout_marginTop="25dp"
+            app:boxBackgroundColor="@android:color/white"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/ingresa_tu_nombre"
+                android:textSize="14sp"
+                tools:layout_editor_absoluteX="83dp"
+                tools:layout_editor_absoluteY="333dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Apellido -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_apellido"
+        android:layout_width="315dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cl_nombre">
+
+        <TextView
+            android:id="@+id/lbl_apellido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/jua"
+            android:text="@string/apellido"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt_apellido"
+            android:layout_width="0dp"
+            android:layout_height="49dp"
+            android:layout_marginTop="25dp"
+            app:boxBackgroundColor="@android:color/white"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/ingresa_tu_apellido"
+                android:inputType="textEmailAddress"
+                android:textSize="14sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Email -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="315dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cl_apellido">
+
+        <TextView
+            android:id="@+id/lbl_email"
+            android:layout_width="31dp"
+            android:layout_height="19dp"
+            android:fontFamily="@font/jua"
+            android:text="@string/email"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt_email"
+            android:layout_width="0dp"
+            android:layout_height="49dp"
+            android:layout_marginTop="25dp"
+            app:boxBackgroundColor="@android:color/white"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/ingresa_tu_mail"
+                android:inputType="textEmailAddress"
+                android:textSize="14sp"
+                tools:layout_editor_absoluteX="83dp"
+                tools:layout_editor_absoluteY="333dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Contraseña -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_contrasena"
+        android:layout_width="315dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+        <TextView
+            android:id="@+id/lbl_clave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/jua"
+            android:text="@string/contrasena"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt_clave"
+            android:layout_width="0dp"
+            android:layout_height="49sp"
+            android:layout_marginTop="25dp"
+            app:boxBackgroundColor="@android:color/white"
+            app:endIconMode="password_toggle"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.508"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="315dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/ingresa_tu_contrasena"
+                android:inputType="textPassword"
+                android:textSize="14sp"
+                tools:layout_editor_absoluteX="83dp"
+                tools:layout_editor_absoluteY="333dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Reingresar Contraseña -->
+
+
+    <!-- Ya tienes cuenta -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_reingresarcontrasena"
+        android:layout_width="315dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cl_contrasena">
+
+        <TextView
+            android:id="@+id/lbl_clavere"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/jua"
+            android:text="@string/reingresar_contrasena"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt_clavere"
+            android:layout_width="0dp"
+            android:layout_height="49sp"
+            android:layout_marginTop="25dp"
+            app:boxBackgroundColor="@android:color/white"
+            app:endIconMode="password_toggle"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.508"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="315dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/reingresar_contrasena"
+                android:inputType="textPassword"
+                android:textSize="14sp"
+                tools:layout_editor_absoluteX="83dp"
+                tools:layout_editor_absoluteY="333dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/txt_tienecuenta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/jua"
+        android:text="@string/tiene_cuenta"
+        android:textAlignment="center"
+        android:textColor="@color/azul_oscuro"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Boton crear cuenta -->
+    <Button
+        android:id="@+id/btn_crearcuenta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:width="315dp"
+        android:backgroundTint="@color/celeste"
+        android:paddingStart="80dp"
+        android:paddingEnd="80dp"
+        android:text="@string/crear_cuenta"
+        app:layout_constraintBottom_toTopOf="@+id/txt_tienecuenta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
