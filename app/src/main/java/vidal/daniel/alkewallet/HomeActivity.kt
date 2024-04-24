@@ -4,7 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 
 class HomeActivity : AppCompatActivity()
 {
@@ -12,8 +14,9 @@ class HomeActivity : AppCompatActivity()
     {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.home)
+
         // Ir a Perfil
-        val perfil = findViewById<Button>(R.id.btn_perfil)
+        val perfil = findViewById<ImageView>(R.id.img_perfil)
         perfil.setOnClickListener {
             val abrirPantalla = Intent(this, ProfileActivity::class.java)
             startActivity(abrirPantalla)
@@ -42,6 +45,12 @@ class HomeActivity : AppCompatActivity()
             val abrirPantalla = Intent(this, LoginActivity::class.java)
             startActivity(abrirPantalla)
             finish()
+        }
+
+        // Alerta
+        val alerta = findViewById<ImageView>(R.id.img_mensajes)
+        alerta.setOnClickListener {
+            Toast.makeText(this, "No tienes mensajes nuevos", Toast.LENGTH_SHORT).show()
         }
 
     }

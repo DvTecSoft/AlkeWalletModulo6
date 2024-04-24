@@ -7,6 +7,8 @@
     <color name="verde">#72DB31</color>
     <color name="plomo">#F3F4F5</color>
     <color name="azul_oscuro">#1A87DD</color>
-    <color name="gris">#DCDDDF</color>
+    <color name="gris">#F0F0F0</color>
+    <color name="gris_claro">#FFEEEFEF</color>
+
 
 </resources>

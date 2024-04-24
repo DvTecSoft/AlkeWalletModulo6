@@ -4,34 +4,154 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RequestMoneyActivity">
+    tools:context=".RequestMoneyActivity"
+    android:background="@color/blanco">
 
+    <ImageView
+        android:id="@+id/img_atras"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back_icon" />
 
-    <!-- MENSAJE PROFILE -->
     <TextView
         android:id="@+id/text_ingresardinero"
-        android:layout_width="305dp"
-        android:layout_height="56dp"
-        android:text="Ingresar Dinero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/jua"
+        android:text="@string/ingresar_dinero"
         android:textAlignment="center"
-        android:textSize="40sp"
+        android:textSize="20sp"
+        android:textColor="@color/negro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Boton Volver a Home -->
-    <Button
-        android:id="@+id/btn_home"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:width="315dp"
-        android:backgroundTint="@color/celeste"
-        android:paddingStart="80dp"
-        android:paddingEnd="80dp"
-        android:text="@string/home"
+    <View
+        android:id="@+id/divider"
+        android:layout_width="409dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="101dp"
+        android:background="?android:attr/listDivider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_ingresardinero" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_fotousuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider"
+        app:srcCompat="@drawable/profile_picture_request" />
+
+    <TextView
+        android:id="@+id/txt_nombreusuriorequest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/jua"
+        android:text="@string/ingresa_nombre"
+        android:textSize="14sp"
+        android:textColor="@color/negro"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+    <TextView
+        android:id="@+id/txt_mailusuriorequest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/jua"
+        android:text="@string/ingresa_mail"
+        android:textSize="12sp"
+        android:textColor="@color/negro"
+        android:alpha="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+    <TextView
+        android:id="@+id/txt_cantidadingresar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="100dp"
+        android:fontFamily="@font/jua"
+        android:textColor="@color/negro"
+        android:text="@string/cantidad_ingresar"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+    <EditText
+        android:id="@+id/editTextNumberDecimal"
+        android:layout_width="350dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/azul_oscuro"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_cantidadingresar" />
+
+    <TextView
+        android:id="@+id/txt_notastx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/jua"
+        android:text="@string/notas_transferencia"
+        android:textSize="14sp"
+        android:textColor="@color/negro"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal" />
+
+    <EditText
+        android:id="@+id/editTextTextMultiLine"
+        android:layout_width="367dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:textColor="@color/negro"
+        android:hint="@string/notas_transferencia_opcional"
+        android:inputType="textMultiLine"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_notastx" />
+
+    <Button
+        android:id="@+id/btn_ingresardinero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:width="315dp"
+        android:backgroundTint="@color/azul"
+        android:text="@string/ingresar_dinero"
+        android:fontFamily="@font/jua"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.604"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_iconrequest"
+        android:layout_width="16dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="80dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_ingresardinero"
+        app:layout_constraintStart_toStartOf="@+id/btn_ingresardinero"
+        app:layout_constraintTop_toTopOf="@+id/btn_ingresardinero"
+        app:srcCompat="@drawable/request_icon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

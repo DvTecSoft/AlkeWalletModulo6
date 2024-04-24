@@ -6,78 +6,227 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
+
     <!-- MENSAJE HOME -->
-    <TextView
-        android:id="@+id/text_home"
-        android:layout_width="202dp"
-        android:layout_height="61dp"
-        android:text="HOME"
-        android:textSize="40sp"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 
     <!-- Boton Perfil -->
-    <Button
-        android:id="@+id/btn_perfil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:width="315dp"
-        android:backgroundTint="@color/celeste"
-        android:paddingStart="80dp"
-        android:paddingEnd="80dp"
-        android:text="@string/perfil"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_home" />
 
     <!-- Boton Ingresar Dinero -->
-    <Button
-        android:id="@+id/btn_enviardinero"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:width="315dp"
-        android:backgroundTint="@color/celeste"
-        android:paddingStart="80dp"
-        android:paddingEnd="80dp"
-        android:text="@string/enviar_dinero"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_perfil" />
 
     <!-- Boton Enviar Dinero -->
-    <Button
-        android:id="@+id/btn_ingresardinero"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:width="315dp"
-        android:backgroundTint="@color/celeste"
-        android:paddingStart="80dp"
-        android:paddingEnd="80dp"
-        android:text="@string/ingresar_dinero"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_enviardinero" />
 
     <!-- Boton Cerrar Sesión -->
-    <Button
-        android:id="@+id/btn_cerrarsesion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:width="315dp"
-        android:backgroundTint="@color/celeste"
-        android:paddingStart="80dp"
-        android:paddingEnd="80dp"
-        android:text="Cerrar Sesión"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_header"
+        android:layout_width="409dp"
+        android:layout_height="262dp"
+        android:background="@color/celeste"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_ingresardinero" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/txt_inicio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="53dp"
+            android:width="45dp"
+            android:height="30dp"
+            android:fontFamily="@font/jua"
+            android:text="@string/inicio"
+            android:textColor="@color/blanco"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/img_perfil"
+            android:layout_width="70dp"
+            android:layout_height="61dp"
+            android:layout_marginStart="212dp"
+            android:layout_marginTop="40dp"
+            app:layout_constraintStart_toEndOf="@+id/txt_inicio"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/profile_user_3" />
+
+        <TextView
+            android:id="@+id/txt_saludo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="120dp"
+            android:width="150dp"
+            android:height="24dp"
+            android:fontFamily="@font/jua"
+            android:text="@string/saludo_usuario"
+            android:textColor="@color/blanco"
+            android:textSize="16sp"
+            android:alpha="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_balancetotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="152dp"
+            android:width="119dp"
+            android:fontFamily="@font/jua"
+            android:text="@string/balance_total"
+            android:textColor="@color/blanco"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_montototal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="190dp"
+            android:width="146dp"
+            android:fontFamily="@font/jua"
+            android:text="@string/monto_total"
+            android:textColor="@color/blanco"
+            android:textSize="40sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_cerrarsesion"
+            android:layout_width="150dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="68dp"
+            android:backgroundTint="@color/celeste"
+            android:fontFamily="@font/jua"
+            android:text="@string/cerrar_sesion"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <ImageView
+            android:id="@+id/img_mensajes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/notifications__icon" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_botones"
+        android:layout_width="409dp"
+        android:layout_height="100dp"
+        android:background="@color/blanco"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cl_header">
+
+
+        <Button
+            android:id="@+id/btn_enviardinero"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:width="165dp"
+            android:height="49dp"
+            android:backgroundTint="@color/verde"
+            android:fontFamily="@font/jua"
+            android:text="@string/enviar_dinero"
+            android:textColor="@color/negro"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.122"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_ingresardinero"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:width="165dp"
+            android:height="49dp"
+            android:backgroundTint="@color/celeste"
+            android:fontFamily="@font/jua"
+            android:text="@string/ingresar_dinero"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.864"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_ultimastx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="70dp"
+            android:width="155dp"
+            android:height="24sp"
+            android:fontFamily="@font/jua"
+            android:text="@string/ultimas_transacciones"
+            android:textColor="@color/negro"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="14dp"
+            app:layout_constraintStart_toStartOf="@+id/btn_enviardinero"
+            app:layout_constraintTop_toTopOf="@+id/btn_enviardinero"
+            app:srcCompat="@drawable/send_icon" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="14dp"
+            app:layout_constraintStart_toStartOf="@+id/btn_ingresardinero"
+            app:layout_constraintTop_toTopOf="@+id/btn_ingresardinero"
+            app:srcCompat="@drawable/request_icon" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:id="@+id/scr_detalletransacciones"
+        android:layout_width="409dp"
+        android:layout_height="372dp"
+        android:background="@color/blanco"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cl_botones"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/txt_sintx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="70dp"
+            android:width="300dp"
+            android:height="24sp"
+            android:fontFamily="@font/jua"
+            android:text="@string/no_hay_transacciones"
+            android:textColor="@color/negro"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

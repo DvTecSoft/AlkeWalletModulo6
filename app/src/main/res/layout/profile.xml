@@ -4,35 +4,221 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileActivity">
+    tools:context=".ProfileActivity"
+    android:background="@color/blanco">
 
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar"
+        android:layout_width="409dp"
+        android:layout_height="200dp"
+        android:layout_gravity="bottom"
+        android:backgroundTint="@color/gris"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="BottomAppBar" />
 
-    <!-- MENSAJE PROFILE -->
+    <ImageView
+        android:id="@+id/img_atras"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back_icon" />
+
     <TextView
-        android:id="@+id/text_home"
-        android:layout_width="202dp"
-        android:layout_height="61dp"
-        android:text="MI PERFIL"
-        android:textSize="40sp"
+        android:id="@+id/txt_miperfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/jua"
+        android:text="@string/mi_perfil"
         android:textAlignment="center"
+        android:textSize="20sp"
+        android:textColor="@color/negro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Boton Volver a Home -->
-    <Button
-        android:id="@+id/btn_home"
+    <ImageView
+        android:id="@+id/img_fotousuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:width="315dp"
-        android:backgroundTint="@color/celeste"
-        android:paddingStart="80dp"
-        android:paddingEnd="80dp"
-        android:text="@string/home"
+        android:layout_marginTop="80dp"
+        app:layout_constraintEnd_toEndOf="@+id/bottomAppBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bottomAppBar"
+        app:srcCompat="@drawable/profile_user_3" />
+
+    <TextView
+        android:id="@+id/txt_nombreusuriosend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/jua"
+        android:text="@string/usuario_nombre"
+        android:textColor="@color/negro"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_home" />
+        app:layout_constraintTop_toBottomOf="@+id/img_fotousuario" />
 
+    <!-- Mi Información -->
+    <Button
+        android:id="@+id/btn_miinformacion"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="345dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="28dp"
+        android:textColor="@color/negro"
+        android:backgroundTint="@color/gris"
+        android:text="@string/mi_informacion"
+        android:fontFamily="@font/jua"
+        app:cornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bottomAppBar"
+        app:strokeColor="@color/material_on_surface_stroke" />
+
+    <ImageButton
+        android:id="@+id/img_miinformacion_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:backgroundTint="@color/gris"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_miinformacion"
+        app:layout_constraintStart_toStartOf="@+id/btn_miinformacion"
+        app:layout_constraintTop_toTopOf="@+id/btn_miinformacion"
+        app:srcCompat="@drawable/mi_informacion_icon" />
+
+    <ImageButton
+        android:id="@+id/img_miinformacion_mayor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:backgroundTint="@color/gris"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_miinformacion"
+        app:layout_constraintEnd_toEndOf="@+id/btn_miinformacion"
+        app:layout_constraintTop_toTopOf="@+id/btn_miinformacion"
+        app:srcCompat="@drawable/mayor_que_icon" />
+
+    <!-- Mis tarjetas -->
+    <Button
+        android:id="@+id/btn_mistarjetas"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="345dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/negro"
+        android:backgroundTint="@color/gris"
+        android:text="@string/mis_tarjetas"
+        android:fontFamily="@font/jua"
+        app:cornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_miinformacion"
+        app:strokeColor="@color/material_on_surface_stroke" />
+
+    <ImageButton
+        android:id="@+id/img_mistarjetas_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:backgroundTint="@color/gris"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_mistarjetas"
+        app:layout_constraintStart_toStartOf="@+id/btn_mistarjetas"
+        app:layout_constraintTop_toTopOf="@+id/btn_mistarjetas"
+        app:srcCompat="@drawable/mis_tarjetas_icon" />
+
+    <ImageButton
+        android:id="@+id/img_mistarjetas_mayor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:backgroundTint="@color/gris"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_mistarjetas"
+        app:layout_constraintEnd_toEndOf="@+id/btn_mistarjetas"
+        app:layout_constraintTop_toTopOf="@+id/btn_mistarjetas"
+        app:srcCompat="@drawable/mayor_que_icon" />
+
+    <!-- Opciones -->
+    <Button
+        android:id="@+id/btn_opciones"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="345dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/negro"
+        android:backgroundTint="@color/gris"
+        android:text="@string/opciones"
+        android:fontFamily="@font/jua"
+        app:cornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_mistarjetas"
+        app:strokeColor="@color/material_on_surface_stroke" />
+
+    <ImageButton
+        android:id="@+id/img_opciones_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:backgroundTint="@color/gris"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_opciones"
+        app:layout_constraintStart_toStartOf="@+id/btn_opciones"
+        app:layout_constraintTop_toTopOf="@+id/btn_opciones"
+        app:srcCompat="@drawable/opciones_ico" />
+
+    <ImageButton
+        android:id="@+id/img_opciones_mayor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:backgroundTint="@color/gris"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_opciones"
+        app:layout_constraintEnd_toEndOf="@+id/btn_opciones"
+        app:layout_constraintTop_toTopOf="@+id/btn_opciones"
+        app:srcCompat="@drawable/mayor_que_icon" />
+
+    <!-- Centro de ayuda -->
+    <Button
+        android:id="@+id/btn_centro_de_ayuda"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="345dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/negro"
+        android:backgroundTint="@color/gris"
+        android:text="@string/centro_de_ayuda"
+        android:fontFamily="@font/jua"
+        app:cornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_opciones"
+        app:strokeColor="@color/material_on_surface_stroke" />
+
+    <ImageButton
+        android:id="@+id/img_centrodeayuda_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:backgroundTint="@color/gris"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_centro_de_ayuda"
+        app:layout_constraintStart_toStartOf="@+id/btn_centro_de_ayuda"
+        app:layout_constraintTop_toTopOf="@+id/btn_centro_de_ayuda"
+        app:srcCompat="@drawable/opciones_ico" />
+
+    <ImageButton
+        android:id="@+id/img_centrodeayuda_mayor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:backgroundTint="@color/gris"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_centro_de_ayuda"
+        app:layout_constraintEnd_toEndOf="@+id/btn_centro_de_ayuda"
+        app:layout_constraintTop_toTopOf="@+id/btn_centro_de_ayuda"
+        app:srcCompat="@drawable/mayor_que_icon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

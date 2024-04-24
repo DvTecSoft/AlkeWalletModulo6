@@ -21,6 +21,32 @@
     <string name="ingresar_dinero">Ingresar Dinero</string>
     <string name="home">Home</string>
     <string name="perfil">Perfil</string>
-
+    <string name="mi_perfil">Mi perfil</string>
+    <string name="mi_informacion">Mi información</string>
+    <string name="mis_tarjetas">Mis tarjetas</string>
+    <string name="opciones">Opciones</string>
+    <string name="centro_de_ayuda">Centro de ayuda</string>
+    <string name="inicio">Inicio</string>
+    <string name="saludo_usuario">Hola, Daniel!</string>
+    <string name="balance_total">Balance Total</string>
+    <string name="monto_total">$124.57</string>
+    <string name="ultimas_transacciones">Últimas transacciones</string>
+    <string name="cantidad_ingresar">Cantidad a ingresar</string>
+    <string name="cantidad_transferir">Cantidad a transferir</string>
+    <string name="notas_transferencia">Notas de transferencia</string>
+    <string name="notas_transferencia_opcional">Agregar notas de transferencia (opcional)</string>
+    <string name="no_hay_transacciones">No hay transacciones registradas!</string>
+    <string name="usuario_ingresar_dinero">Reem Khaled</string>
+    <string name="mail_usuario_ingresar_dinero">reem_1993@gmail.com</string>
+    <string name="cantidad_ingresar_monto">20.00</string>
+    <string name="usuario_envir_dinero">Yara Khalil</string>
+    <string name="mail_enviar_ingresar_dinero">yara_khalil@gmail.com</string>
+    <string name="cantidad_enviar_monto">12.50</string>
+    <string name="cerrar_sesion">Cerrar sesión</string>
+    <string name="ingresa_nombre">Reem Khaled</string>
+    <string name="ingresa_mail">reem_1993@gmail.com</string>
+    <string name="envia_nombre">Yara Khalil</string>
+    <string name="envia_mail">yara_khalil@gmail.com</string>
+    <string name="usuario_nombre">Daniel Vidal</string>
 
 </resources>

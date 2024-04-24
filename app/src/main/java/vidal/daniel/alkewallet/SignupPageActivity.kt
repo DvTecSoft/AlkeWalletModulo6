@@ -22,7 +22,7 @@ class SignupPageActivity : AppCompatActivity()
         home.setOnClickListener {
             val abrirPantalla = Intent(this, LoginActivity::class.java)
             // Mensaje OK
-            Toast.makeText(this, "Hola, Cuenta Creada.",Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Cuenta creada correctamente!.",Toast.LENGTH_LONG).show()
             startActivity(abrirPantalla)
             finish()
         }
