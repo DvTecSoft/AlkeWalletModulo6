@@ -7,63 +7,65 @@
     tools:context=".ProfileActivity"
     android:background="@color/blanco">
 
-    <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/bottomAppBar"
-        android:layout_width="409dp"
-        android:layout_height="200dp"
-        android:layout_gravity="bottom"
-        android:backgroundTint="@color/gris"
+    <!-- Layout cabecera -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_cabecera"
+        android:layout_width="408dp"
+        android:layout_height="180dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="BottomAppBar" />
+        android:background="@color/gris"
+        >
 
-    <ImageView
-        android:id="@+id/img_atras"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="30dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/back_icon" />
+        <ImageView
+            android:id="@+id/img_atras"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/back_icon" />
 
-    <TextView
-        android:id="@+id/txt_miperfil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:fontFamily="@font/jua"
-        android:text="@string/mi_perfil"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        android:textColor="@color/negro"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/txt_miperfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/jua"
+            android:text="@string/mi_perfil"
+            android:textAlignment="center"
+            android:textColor="@color/negro"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/img_fotousuario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        app:layout_constraintEnd_toEndOf="@+id/bottomAppBar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/bottomAppBar"
-        app:srcCompat="@drawable/profile_user_3" />
+        <ImageView
+            android:id="@+id/img_fotousuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_miperfil"
+            app:srcCompat="@drawable/profile_user_3" />
 
-    <TextView
-        android:id="@+id/txt_nombreusuriosend"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/jua"
-        android:text="@string/usuario_nombre"
-        android:textColor="@color/negro"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_fotousuario" />
+        <TextView
+            android:id="@+id/txt_nombreusuriosend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/jua"
+            android:text="@string/usuario_nombre"
+            android:textColor="@color/negro"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_fotousuario" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- Mi Información -->
     <Button
@@ -71,38 +73,21 @@
         style="?attr/materialButtonOutlinedStyle"
         android:layout_width="345dp"
         android:layout_height="64dp"
-        android:layout_marginTop="28dp"
-        android:textColor="@color/negro"
+        android:layout_marginTop="30dp"
         android:backgroundTint="@color/gris"
-        android:text="@string/mi_informacion"
+        android:drawableLeft="@drawable/mi_informacion_icon"
+        android:drawableRight="@drawable/mayor_que_icon"
         android:fontFamily="@font/jua"
+        android:gravity="left|center"
+        android:text="@string/mi_informacion"
+        android:textColor="@color/negro"
         app:cornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bottomAppBar"
-        app:strokeColor="@color/material_on_surface_stroke" />
-
-    <ImageButton
-        android:id="@+id/img_miinformacion_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:backgroundTint="@color/gris"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_miinformacion"
-        app:layout_constraintStart_toStartOf="@+id/btn_miinformacion"
-        app:layout_constraintTop_toTopOf="@+id/btn_miinformacion"
-        app:srcCompat="@drawable/mi_informacion_icon" />
-
-    <ImageButton
-        android:id="@+id/img_miinformacion_mayor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="15dp"
-        android:backgroundTint="@color/gris"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_miinformacion"
-        app:layout_constraintEnd_toEndOf="@+id/btn_miinformacion"
-        app:layout_constraintTop_toTopOf="@+id/btn_miinformacion"
-        app:srcCompat="@drawable/mayor_que_icon" />
+        app:layout_constraintTop_toBottomOf="@+id/cl_cabecera"
+        app:strokeColor="@color/material_on_surface_stroke"
+        app:iconPadding="30dp"
+        />
 
     <!-- Mis tarjetas -->
     <Button
@@ -113,35 +98,19 @@
         android:layout_marginTop="10dp"
         android:textColor="@color/negro"
         android:backgroundTint="@color/gris"
+        android:drawableLeft="@drawable/mis_tarjetas_icon"
+        android:drawableRight="@drawable/mayor_que_icon"
         android:text="@string/mis_tarjetas"
         android:fontFamily="@font/jua"
+        android:gravity="left|center"
         app:cornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_miinformacion"
-        app:strokeColor="@color/material_on_surface_stroke" />
+        app:strokeColor="@color/material_on_surface_stroke"
+        app:iconPadding="30dp"
+        />
 
-    <ImageButton
-        android:id="@+id/img_mistarjetas_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:backgroundTint="@color/gris"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_mistarjetas"
-        app:layout_constraintStart_toStartOf="@+id/btn_mistarjetas"
-        app:layout_constraintTop_toTopOf="@+id/btn_mistarjetas"
-        app:srcCompat="@drawable/mis_tarjetas_icon" />
-
-    <ImageButton
-        android:id="@+id/img_mistarjetas_mayor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="15dp"
-        android:backgroundTint="@color/gris"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_mistarjetas"
-        app:layout_constraintEnd_toEndOf="@+id/btn_mistarjetas"
-        app:layout_constraintTop_toTopOf="@+id/btn_mistarjetas"
-        app:srcCompat="@drawable/mayor_que_icon" />
 
     <!-- Opciones -->
     <Button
@@ -152,35 +121,18 @@
         android:layout_marginTop="10dp"
         android:textColor="@color/negro"
         android:backgroundTint="@color/gris"
+        android:drawableLeft="@drawable/opciones_ico"
+        android:drawableRight="@drawable/mayor_que_icon"
         android:text="@string/opciones"
         android:fontFamily="@font/jua"
+        android:gravity="left|center"
         app:cornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_mistarjetas"
-        app:strokeColor="@color/material_on_surface_stroke" />
-
-    <ImageButton
-        android:id="@+id/img_opciones_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:backgroundTint="@color/gris"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_opciones"
-        app:layout_constraintStart_toStartOf="@+id/btn_opciones"
-        app:layout_constraintTop_toTopOf="@+id/btn_opciones"
-        app:srcCompat="@drawable/opciones_ico" />
-
-    <ImageButton
-        android:id="@+id/img_opciones_mayor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="15dp"
-        android:backgroundTint="@color/gris"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_opciones"
-        app:layout_constraintEnd_toEndOf="@+id/btn_opciones"
-        app:layout_constraintTop_toTopOf="@+id/btn_opciones"
-        app:srcCompat="@drawable/mayor_que_icon" />
+        app:strokeColor="@color/material_on_surface_stroke"
+        app:iconPadding="30dp"
+        />
 
     <!-- Centro de ayuda -->
     <Button
@@ -193,32 +145,17 @@
         android:backgroundTint="@color/gris"
         android:text="@string/centro_de_ayuda"
         android:fontFamily="@font/jua"
+        android:gravity="left|center"
         app:cornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_opciones"
-        app:strokeColor="@color/material_on_surface_stroke" />
+        app:strokeColor="@color/material_on_surface_stroke"
+        android:drawableLeft="@drawable/centro_de_ayuda_ico"
+        android:drawableRight="@drawable/mayor_que_icon"
+        app:iconPadding="30dp"
+        />
 
-    <ImageButton
-        android:id="@+id/img_centrodeayuda_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:backgroundTint="@color/gris"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_centro_de_ayuda"
-        app:layout_constraintStart_toStartOf="@+id/btn_centro_de_ayuda"
-        app:layout_constraintTop_toTopOf="@+id/btn_centro_de_ayuda"
-        app:srcCompat="@drawable/opciones_ico" />
 
-    <ImageButton
-        android:id="@+id/img_centrodeayuda_mayor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="15dp"
-        android:backgroundTint="@color/gris"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_centro_de_ayuda"
-        app:layout_constraintEnd_toEndOf="@+id/btn_centro_de_ayuda"
-        app:layout_constraintTop_toTopOf="@+id/btn_centro_de_ayuda"
-        app:srcCompat="@drawable/mayor_que_icon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
