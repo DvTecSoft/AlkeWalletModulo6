@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignupPageActivity"
+    tools:context=".view.SignupPageActivity"
     android:background="@drawable/fondo_avion">
 
     <!-- Título -->
@@ -43,17 +43,18 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txt_nombre"
+            android:id="@+id/textInputLayout1"
             android:layout_width="0dp"
             android:layout_height="49dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="9dp"
             app:boxBackgroundColor="@android:color/white"
             app:hintEnabled="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/lbl_nombre">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txt_nombre"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="@string/ingresa_tu_nombre"
@@ -85,17 +86,18 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txt_apellido"
+            android:id="@+id/textInputLayout2"
             android:layout_width="0dp"
             android:layout_height="49dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="9dp"
             app:boxBackgroundColor="@android:color/white"
             app:hintEnabled="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/lbl_apellido">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txt_apellido"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="@string/ingresa_tu_apellido"
@@ -116,25 +118,26 @@
 
         <TextView
             android:id="@+id/lbl_email"
-            android:layout_width="31dp"
-            android:layout_height="19dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/jua"
             android:text="@string/email"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txt_email"
+            android:id="@+id/textInputLayout3"
             android:layout_width="0dp"
             android:layout_height="49dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="6dp"
             app:boxBackgroundColor="@android:color/white"
             app:hintEnabled="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/lbl_email">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txt_email"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="@string/ingresa_tu_mail"
@@ -166,19 +169,20 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txt_clave"
+            android:id="@+id/textInputLayout4"
             android:layout_width="0dp"
             android:layout_height="49sp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="8dp"
             app:boxBackgroundColor="@android:color/white"
             app:endIconMode="password_toggle"
             app:hintEnabled="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.508"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/lbl_clave">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txt_clave"
                 android:layout_width="315dp"
                 android:layout_height="wrap_content"
                 android:hint="@string/ingresa_tu_contrasena"
@@ -213,19 +217,20 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txt_clavere"
+            android:id="@+id/textInputLayout5"
             android:layout_width="0dp"
             android:layout_height="49sp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="8dp"
             app:boxBackgroundColor="@android:color/white"
             app:endIconMode="password_toggle"
             app:hintEnabled="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.508"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/lbl_clavere">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txt_clavere"
                 android:layout_width="315dp"
                 android:layout_height="wrap_content"
                 android:hint="@string/reingresar_contrasena"
@@ -234,7 +239,6 @@
                 tools:layout_editor_absoluteX="83dp"
                 tools:layout_editor_absoluteY="333dp" />
         </com.google.android.material.textfield.TextInputLayout>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView

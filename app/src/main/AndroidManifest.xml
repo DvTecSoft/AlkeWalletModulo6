@@ -16,47 +16,46 @@
         >
 
         <activity
-            android:name=".RememberPasswordActivity"
+            android:name=".view.RememberPasswordActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             />
         <activity
-            android:name=".ProfileActivity"
+            android:name=".view.ProfileActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             />
         <activity
-            android:name=".SendMoneyActivity"
+            android:name=".view.SendMoneyActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             />
         <activity
-            android:name=".RequestMoneyActivity"
+            android:name=".view.RequestMoneyActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             />
         <activity
-            android:name=".HomeActivity"
+            android:name=".view.HomeActivity"
+            android:exported="false"
+            />
+        <activity
+            android:name=".view.SignupPageActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             />
         <activity
-            android:name=".SignupPageActivity"
+            android:name=".view.LoginActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             />
         <activity
-            android:name=".LoginActivity"
+            android:name=".view.LoginSignupPageActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             />
         <activity
-            android:name=".LoginSignupPageActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            />
-        <activity
-            android:name=".SplashScreenActivity"
+            android:name=".view.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
