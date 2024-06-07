@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -58,6 +59,21 @@ dependencies {
     var lifecycle_version = "2.2.0"
     implementation ("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
 
+    // Implemento ROOM
+    implementation ("androidx.room:room-runtime:2.4.0")
+    kapt ("androidx.room:room-compiler:2.4.0")
+
+    // Implementa Picasso (para agregar imágenes a recicler)
+    implementation ("com.squareup.picasso:picasso:2.8")
+
+    // Implemento GLIDE (para agregar imágenes a recicler)
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.15.1")
+
+    // Implemento Retrofit para acceso a apis
+    implementation ("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.11.0")
 
 
 }
+

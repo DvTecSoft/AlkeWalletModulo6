@@ -11,4 +11,5 @@ data class HomeModel
     ,val accountId      : Int = 1
     ,val userId         : Int = 4
     ,val to_account_id  : Int = 5
+    ,val url_imagen     : String?
 )

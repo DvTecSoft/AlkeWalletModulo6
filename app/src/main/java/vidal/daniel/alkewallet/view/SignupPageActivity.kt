@@ -56,14 +56,16 @@ class SignupPageActivity : AppCompatActivity()
             v_email     = binding.txtEmail.text.toString()
             v_password  = binding.txtClave.text.toString()
 
-            viewModel.crearUsuario(v_nombre, v_apellido, v_email, v_password, null, null)
+            viewModel.crearUsuario(v_nombre, v_apellido, v_email, v_password, 1, null)
         }
 
         // Observa respuesta de la creación
-        viewModel.signupResultLiveData.observe(this) {
+        viewModel.creadoLiveData.observe(this) {
             // loginOK es la variable que tendrá el resultado
-                creadoOK ->
-            if (creadoOK == true) {
+            creadoOK ->
+            if (creadoOK == true)
+            {
+                /*
                 // Guardo datos en sharedPreferences para primer ingreso
                 val editor = sharedPreferences.edit()
                 editor.putString("nombre", v_nombre)
@@ -73,11 +75,21 @@ class SignupPageActivity : AppCompatActivity()
 
                 // editor.putBoolean("recuerdame", true)
                 editor.apply()
+                */
 
+                // Mensaje Creación OK
+                Toast.makeText(this,"Usuario creado correctamente", Toast.LENGTH_SHORT).show()
+
+                // Va a Login
                 val winCrear = Intent(this, LoginActivity::class.java)
                 startActivity(winCrear)
-            } else {
-                viewModel.errorResultLiveData.observe(this) { error_vm ->
+                finish()
+            }
+            else
+            {
+                viewModel.errorLiveData.observe(this)
+                {
+                    error_vm ->
                     Toast.makeText(
                         this,
                         "No es posible crear el usuario. Error: $error_vm",
@@ -87,7 +99,6 @@ class SignupPageActivity : AppCompatActivity()
             }
         }
         // FIN Crear cuenta
-
 
 
         binding.txtTienecuenta.setOnClickListener {

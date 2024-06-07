@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
+import vidal.daniel.alkewallet.AlkeWalletApp.Companion.usuarioLogeado
 import vidal.daniel.alkewallet.R
 import vidal.daniel.alkewallet.databinding.LoginSignupPageBinding
 import vidal.daniel.alkewallet.databinding.ProfileBinding
@@ -30,20 +31,20 @@ class ProfileActivity : AppCompatActivity()
         sharedPreferences = getSharedPreferences("AlkeWalet", Context.MODE_PRIVATE)
 
         // Implemento los SharedPreferences
-        val nombreUsuario = sharedPreferences.getString("nombre", "") + " " + sharedPreferences.getString("apellido", "")
-        val imgPerfil = sharedPreferences.getString("imgperfil", "")
-
+        //val nombreUsuario = sharedPreferences.getString("nombre", "") + " " + sharedPreferences.getString("apellido", "")
+        //val imgPerfil = sharedPreferences.getString("imgperfil", "")
         // Asigno valor en textview
-        binding.txtNombreusuriosend.text = nombreUsuario
-
+        // binding.txtNombreusuriosend.text = nombreUsuario
         // Asigno imagen de perfil dinámicamente
-        val imageName = imgPerfil
-
+        // val imageName = imgPerfil
         // Obtengo el ID de la imagen
-        val resourceId = resources.getIdentifier(imageName, "drawable", packageName)
-
+        // val resourceId = resources.getIdentifier(imageName, "drawable", packageName)
         // Establecer la imagen de fondo del ImageView
-        binding.imgFotousuario.setImageResource(resourceId)
+        // binding.imgFotousuario.setImageResource(resourceId)
+
+        // Obtengo datos desde objeto global con los datos del usuario
+        var nombreUsuario = usuarioLogeado?.first_name + " " + usuarioLogeado?.last_name
+        binding.txtNombreusuriosend.text = nombreUsuario
 
         // Ir a Home
         binding.imgAtras.setOnClickListener {
