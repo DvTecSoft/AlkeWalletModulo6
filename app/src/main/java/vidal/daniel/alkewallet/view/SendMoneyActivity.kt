@@ -6,6 +6,9 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import vidal.daniel.alkewallet.AlkeWalletApp
+import vidal.daniel.alkewallet.AlkeWalletApp.Companion.showMessageBox
 import vidal.daniel.alkewallet.R
 import vidal.daniel.alkewallet.databinding.RequestMoneyBinding
 import vidal.daniel.alkewallet.databinding.SendMoneyBinding
@@ -49,7 +52,8 @@ class SendMoneyActivity : AppCompatActivity()
             // Valida información ingresada
             if (numeroCuentaStr.isEmpty() || montoStr.isEmpty())
             {
-                Toast.makeText(this, "Debe ingresar el número de cuenta destino y la cantidad. Valide y reintente", Toast.LENGTH_SHORT).show()
+                //Toast.makeText(this, "Debe ingresar el número de cuenta destino y la cantidad. Valide y reintente", Toast.LENGTH_SHORT).show()
+                showMessageBox("Error", "Debe ingresar el número de cuenta destino y la cantidad. Valide y reintente.")
                 return@setOnClickListener // No continuar si el campo está vacío
             }
 
@@ -81,4 +85,7 @@ class SendMoneyActivity : AppCompatActivity()
 
 
     }
+
+
+
 }
