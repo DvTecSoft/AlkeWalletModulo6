@@ -42,64 +42,69 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/img_fotousuario"
+        android:id="@+id/imgFotoUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider"
+        app:layout_constraintTop_toBottomOf="@+id/editNumeroCuenta"
         app:srcCompat="@drawable/profile_picture_send" />
 
     <TextView
-        android:id="@+id/txt_nombreusuriosend"
-        android:layout_width="wrap_content"
+        android:id="@+id/editNombreUsuario"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
+        android:layout_marginStart="112dp"
         android:layout_marginTop="30dp"
+        android:width="200dp"
         android:fontFamily="@font/jua"
         android:text="@string/envia_nombre"
-        android:textSize="14sp"
         android:textColor="@color/negro"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider" />
+        app:layout_constraintTop_toBottomOf="@+id/editNumeroCuenta" />
 
     <TextView
-        android:id="@+id/txt_mailusuriorequest"
-        android:layout_width="wrap_content"
+        android:id="@+id/editMail"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="60dp"
+        android:width="200sp"
+        android:alpha="0.5"
         android:fontFamily="@font/jua"
         android:text="@string/envia_mail"
-        android:textSize="12sp"
         android:textColor="@color/negro"
-        android:alpha="0.5"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider" />
+        app:layout_constraintTop_toBottomOf="@+id/editNumeroCuenta" />
 
     <TextView
         android:id="@+id/txt_cantidadingresar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/jua"
-        android:textColor="@color/negro"
         android:text="@string/cantidad_transferir"
+        android:textColor="@color/negro"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider" />
+        app:layout_constraintTop_toBottomOf="@+id/editMail" />
 
     <EditText
-        android:id="@+id/editTextNumberDecimal"
-        android:layout_width="350dp"
+        android:id="@+id/editMonto"
+        android:layout_width="0dp"
         android:layout_height="49dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="16dp"
-        android:textColor="@color/verde"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
         android:ems="10"
-        android:inputType="numberDecimal"
+        android:inputType="number|numberSigned"
+        android:textColor="@color/verde"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.377"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_cantidadingresar" />
 
@@ -107,31 +112,33 @@
         android:id="@+id/txt_notastx"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="24dp"
         android:fontFamily="@font/jua"
         android:text="@string/notas_transferencia"
-        android:textSize="14sp"
         android:textColor="@color/negro"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal" />
+        app:layout_constraintTop_toBottomOf="@+id/editMonto" />
 
     <EditText
-        android:id="@+id/editTextTextMultiLine"
-        android:layout_width="367dp"
+        android:id="@+id/editNota"
+        android:layout_width="0dp"
         android:layout_height="200dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
         android:ems="10"
         android:gravity="start|top"
-        android:textColor="@color/negro"
         android:hint="@string/notas_transferencia_opcional"
         android:inputType="textMultiLine"
+        android:textColor="@color/negro"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_notastx" />
 
     <Button
-        android:id="@+id/btn_enviardinero"
+        android:id="@+id/btnEnviarDinero"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
@@ -150,9 +157,39 @@
         android:layout_width="16dp"
         android:layout_height="24dp"
         android:layout_marginStart="80dp"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_enviardinero"
-        app:layout_constraintStart_toStartOf="@+id/btn_enviardinero"
-        app:layout_constraintTop_toTopOf="@+id/btn_enviardinero"
+        app:layout_constraintBottom_toBottomOf="@+id/btnEnviarDinero"
+        app:layout_constraintStart_toStartOf="@+id/btnEnviarDinero"
+        app:layout_constraintTop_toTopOf="@+id/btnEnviarDinero"
         app:srcCompat="@drawable/send_icon" />
+
+    <TextView
+        android:id="@+id/txtCuentaContable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="331dp"
+        android:text="@string/cuentacontabledestino"
+        android:fontFamily="@font/jua"
+        android:textColor="@color/negro"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider"
+        />
+
+    <EditText
+        android:id="@+id/editNumeroCuenta"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

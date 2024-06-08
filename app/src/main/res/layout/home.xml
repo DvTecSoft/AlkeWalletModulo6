@@ -130,7 +130,7 @@
 
 
         <Button
-            android:id="@+id/btn_enviardinero"
+            android:id="@+id/btnEnviarDinero"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -181,8 +181,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="14dp"
             android:layout_marginTop="14dp"
-            app:layout_constraintStart_toStartOf="@+id/btn_enviardinero"
-            app:layout_constraintTop_toTopOf="@+id/btn_enviardinero"
+            app:layout_constraintStart_toStartOf="@+id/btnEnviarDinero"
+            app:layout_constraintTop_toTopOf="@+id/btnEnviarDinero"
             app:srcCompat="@drawable/send_icon" />
 
         <ImageView
