@@ -44,7 +44,7 @@ class ProfileActivity : AppCompatActivity()
 
         // Obtengo datos desde objeto global con los datos del usuario
         var nombreUsuario = usuarioLogeado?.first_name + " " + usuarioLogeado?.last_name
-        binding.txtNombreusuriosend.text = nombreUsuario
+        binding.editNombreUsuario.text = nombreUsuario
 
         // Ir a Home
         binding.imgAtras.setOnClickListener {

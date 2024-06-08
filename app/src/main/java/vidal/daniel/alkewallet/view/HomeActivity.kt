@@ -120,7 +120,7 @@ class HomeActivity : AppCompatActivity()
         // FIN Carga el saldo y los movimientos realizados
 
         // Ir a Enviar Dinero
-        binding.btnEnviardinero.setOnClickListener {
+        binding.btnEnviarDinero.setOnClickListener {
             val winSendMoney = Intent(this, SendMoneyActivity::class.java)
             startActivity(winSendMoney)
         }

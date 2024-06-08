@@ -49,5 +49,7 @@
     <string name="envia_mail">yara_khalil@gmail.com</string>
     <string name="usuario_nombre">Daniel Vidal</string>
     <string name="cuentacontabledestino">Cuenta Contable Destino</string>
+    <string name="ingreseCantidad">Ingrese Cantidad</string>
+    <string name="ingreseCtaContableDestino">Ingrese Cta. Contable Destino</string>
 
 </resources>

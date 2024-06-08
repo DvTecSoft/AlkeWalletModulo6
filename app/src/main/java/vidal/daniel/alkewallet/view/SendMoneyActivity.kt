@@ -39,7 +39,7 @@ class SendMoneyActivity : AppCompatActivity()
         */
 
         // Enviar transferencia y volver al home
-        binding.btnEnviardinero.setOnClickListener {
+        binding.btnEnviarDinero.setOnClickListener {
 
             // Mensaje Transferencia realizada
             Toast.makeText(this, "Envío de dinero realizado!.", Toast.LENGTH_LONG).show()
