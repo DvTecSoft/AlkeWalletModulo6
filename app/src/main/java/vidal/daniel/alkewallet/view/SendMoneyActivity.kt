@@ -41,11 +41,30 @@ class SendMoneyActivity : AppCompatActivity()
         // Enviar transferencia y volver al home
         binding.btnEnviarDinero.setOnClickListener {
 
-            // Mensaje Transferencia realizada
-            Toast.makeText(this, "Envío de dinero realizado!.", Toast.LENGTH_LONG).show()
+            // Rescato valores ingresados
+            val numeroCuentaStr = binding.editNumeroCuenta.text.toString()
+            val montoStr        = binding.editMonto.text.toString()
+            val nota            = binding.editNota.text.toString()
 
-            val abrirPantalla = Intent(this, HomeActivity::class.java)
-            startActivity(abrirPantalla)
+            // Valida información ingresada
+            if (numeroCuentaStr.isEmpty() || montoStr.isEmpty())
+            {
+                Toast.makeText(this, "Debe ingresar el número de cuenta destino y la cantidad. Valide y reintente", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener // No continuar si el campo está vacío
+            }
+
+            // Convierto valores
+            val numeroCuentaInt = numeroCuentaStr.toInt()
+            val montoInt        = montoStr.toInt()
+
+            //
+
+
+            // Volver a Home
+            // Mensaje Transferencia realizada
+            //Toast.makeText(this, "Envío de dinero realizado!.", Toast.LENGTH_LONG).show()
+            //val abrirPantalla = Intent(this, HomeActivity::class.java)
+            //startActivity(abrirPantalla)
         }
         /*
         val enviar = findViewById<Button>(R.id.btn_enviardinero)
@@ -57,6 +76,9 @@ class SendMoneyActivity : AppCompatActivity()
             finish()
         }
         */
+
+
+
 
     }
 }
