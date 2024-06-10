@@ -104,9 +104,6 @@ class LoginActivity : AppCompatActivity()
         }
         // FIN Observa respuesta de los datos del usuario logueado
 
-
-
-
         // Observa el MediatorLiveData
         viewModel.combinedData.observe(this, Observer { combined ->
             val data1 = combined.first
@@ -142,30 +139,6 @@ class LoginActivity : AppCompatActivity()
 
         })
 
-            /*
-            // variable que tendrá el resultado de la validación de la cuenta
-                sincuentacontable ->
-            if (sincuentacontable == true) // No tiene cuenta
-            {
-                // Llamar a la api para obtener los datos del usuario en ViewModel
-                viewModel.crearCuentaContable()
-            }
-            else
-            {
-                // Obtentengo el id de la cuenta contable del usuario logeado
-                //viewModel.datosCuentaContableLogin()
-                //obtieneDatosCuentaContableLogin()
-
-                // Entra a Home
-                // Habilito la pantalla
-                val abrirPantalla = Intent(this, HomeActivity::class.java)
-                // Carga pantalla
-                startActivity(abrirPantalla)
-                finish()
-            }
-        }
-        */
-
         // Observa respuesta de la validación de la cuenta contable
         viewModel.cuentaContableCreadaLiveData.observe(this)
         {
@@ -196,14 +169,6 @@ class LoginActivity : AppCompatActivity()
 
     }
     // FIN OnCreate
-
-    /*
-    fun obtieneDatosCuentaContableLogin()
-    {
-        // Llamar a la api para obtener los datos del usuario en ViewModel
-        viewModel.datosCuentaContableLogin()
-    }
-    */
 
 
 }

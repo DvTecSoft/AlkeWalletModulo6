@@ -27,10 +27,8 @@ class HomeViewModel : ViewModel()
     // private val _txList = MutableLiveData<List<TransaccionResponse>?>()
     //Esta variable es la que se va a encargar de propagar el cambio a sus observadores
     // val homeTx : LiveData<List<TransaccionResponse>?>  = _txList
-
-     val homeTx          = MutableLiveData<List<TransaccionModel>?>()
-
-    val miCuentaContableLiveData = MutableLiveData<List<CuentaContableModel>?>()
+    val homeTx                      = MutableLiveData<List<TransaccionModel>?>()
+    val miCuentaContableLiveData    = MutableLiveData<List<CuentaContableModel>?>()
 
      //Método para cargar la lista de usuarios desde una fuente de datos (API, base de datos, etc.)
     fun loadTx()
@@ -39,6 +37,7 @@ class HomeViewModel : ViewModel()
         CoroutineScope(Dispatchers.IO).launch {
             try
             {
+                Log.d("DvTec", "Entra a corrutina")
                 // Aca llamaremos a la Api
                 // Esta es la instancia de Retrofit
                 var v_listaTransacciones = RetrofitInstancia.retrofit.create(TransaccionService::class.java)
@@ -46,19 +45,22 @@ class HomeViewModel : ViewModel()
                 // Se crea la variabae que va a manejar la respuesta del servicio
                 val v_token = "Bearer ${AlkeWalletApp.tokenAcceso}"
 
+                val v_currentPage : Int = 1
+
                 // Se crea la variabae que va a manejar la respuesta del servicio
-                val v_llamadaApi : Call<TransaccionResponse> = v_listaTransacciones.obtenerTransacciones(v_token) // Funcion desde Service
-
-                Log.d("TransactionViewModel", v_llamadaApi.toString())
-
+                val v_llamadaApi : Call<TransaccionResponse> = v_listaTransacciones.obtenerTransacciones(v_currentPage, v_token) // Funcion desde Service
                 v_llamadaApi.enqueue(object : Callback<TransaccionResponse>
                 {
                     override fun onResponse(call : Call<TransaccionResponse>, response : Response<TransaccionResponse>)
                     {
-                        // val transactions = transactionsResponse?.data
-                        Log.d("TransactionViewModel", "Dentro de apillamada")
-
                         var transaccionesLista = response.body()
+
+                        // val transactions = transactionsResponse?.data
+                        Log.d("DvTec", "En OnResponse $transaccionesLista")
+
+                        // Log.d("DvTec", "NextPage ${transaccionesLista?.nextPage}")
+                        // Log.d("DvTec", "Page: ${transaccionesLista?.previousPage}")
+
                         if (response.isSuccessful)
                         {
                             // _txList.postValue(transaccionesLista)
@@ -66,12 +68,17 @@ class HomeViewModel : ViewModel()
                             {
                                 homeTx.postValue(transaccionesLista.data)
                             }
+                            else
+                            {
+                                Log.d("DvTec", "Es nulo: $transaccionesLista.data")
+                            }
                             // Log.d("TransactionViewModel", "Error: $transaccionesLista")
                         }
                         else
                         {
                             // _txList.postValue(null)
                             homeTx.postValue(null ?: emptyList())
+                            Log.d("DvTec", "Error Api response.isSuccessful $response.body()")
                         }
                     }
 
@@ -79,6 +86,7 @@ class HomeViewModel : ViewModel()
                     {
                         // _txList.postValue(null)
                         homeTx.postValue(emptyList())
+                        Log.d("DvTec", "Fallo En OnResponse $t")
                     }
                 })
                 // FIN Respuesta de la api
@@ -88,7 +96,7 @@ class HomeViewModel : ViewModel()
                 // Error
                 // _txList.postValue(null)
                 homeTx.postValue(null ?: emptyList())
-                Log.d("TransactionViewModel", "Error: $e")
+                Log.d("Dvtec", "Error: $e")
             }
         } // Fin Corutina
     }
@@ -106,7 +114,7 @@ class HomeViewModel : ViewModel()
 
                 // Se crea la variabae que va a manejar la respuesta del servicio
                 val v_token     = "Bearer ${AlkeWalletApp.tokenAcceso}"
-                val v_idCuenta  = {AlkeWalletApp.vg_idCuentaUsuarioLogueado}
+                //val v_idCuenta  = {AlkeWalletApp.vg_idCuentaUsuarioLogueado}
 
                 // Se crea la variabae que va a manejar la respuesta del servicio
                 // val v_llamadaApi : Call<CuentaContableResponse> = v_ObtieneMiCuentaContable.consultarMiCuentaContable(v_idCuenta, v_token) // Funcion desde Service
@@ -118,13 +126,15 @@ class HomeViewModel : ViewModel()
                 {
                     override fun onResponse(call : Call<List<CuentaContableModel>>, response : Response<List<CuentaContableModel>>)
                     {
-                        Log.d("DvTec", "Dentro de apillamada")
+                        //Log.d("DvTec", "Dentro de apillamada")
 
                         var miCuentaContable = response.body()
                         if (response.isSuccessful)
                         {
                             if (miCuentaContable != null)
                             {
+                                Log.d("DvTec", "miCuentaContable $miCuentaContable")
+
                                 miCuentaContableLiveData.postValue(miCuentaContable)
                             }
                         }

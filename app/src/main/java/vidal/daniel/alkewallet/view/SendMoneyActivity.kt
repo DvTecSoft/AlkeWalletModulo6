@@ -1,24 +1,32 @@
 package vidal.daniel.alkewallet.view
 
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.ImageView
+import android.util.Log
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
+import androidx.annotation.RequiresApi
+import androidx.lifecycle.ViewModelProvider
 import vidal.daniel.alkewallet.AlkeWalletApp
 import vidal.daniel.alkewallet.AlkeWalletApp.Companion.showMessageBox
-import vidal.daniel.alkewallet.R
-import vidal.daniel.alkewallet.databinding.RequestMoneyBinding
 import vidal.daniel.alkewallet.databinding.SendMoneyBinding
+import vidal.daniel.alkewallet.viewmodel.SendMoneyViewModel
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.ZoneId
+import java.util.Date
 
 class SendMoneyActivity : AppCompatActivity()
 {
 
-    // Habilito binding
+    // Variable para Binding
     lateinit var binding : SendMoneyBinding
 
+    // Variable para viewModel
+    lateinit var viewModel : SendMoneyViewModel
+
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
@@ -27,19 +35,15 @@ class SendMoneyActivity : AppCompatActivity()
         binding =  SendMoneyBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Configuramos el ViewModel
+        viewModel = ViewModelProvider(this).get(SendMoneyViewModel::class.java)
+
         // Ir a Home
         binding.imgAtras.setOnClickListener {
             val abrirPantalla = Intent(this, HomeActivity::class.java)
             startActivity(abrirPantalla)
-        }
-        /*
-        val home = findViewById<ImageView>(R.id.img_atras)
-        home.setOnClickListener {
-            val abrirPantalla = Intent(this, HomeActivity::class.java)
-            startActivity(abrirPantalla)
             finish()
         }
-        */
 
         // Enviar transferencia y volver al home
         binding.btnEnviarDinero.setOnClickListener {
@@ -58,11 +62,27 @@ class SendMoneyActivity : AppCompatActivity()
             }
 
             // Convierto valores
-            val numeroCuentaInt = numeroCuentaStr.toInt()
-            val montoInt        = montoStr.toInt()
+            val numeroCuentaInt     = numeroCuentaStr.toInt()
+            val montoInt            = montoStr.toInt()
+            val localFecha          = LocalDateTime.now()
+            //val fecha               = convertToLocalDateViaInstant(localFecha)
+            val v_idCuentaEnvia     = AlkeWalletApp.vg_idCuentaUsuarioLogueado
+            val v_idUsuario         = AlkeWalletApp.usuarioLogeado?.id
 
-            //
+            // Genera la transacción en endpoint Transaction para el usuario que envía
+            if (v_idUsuario != null && v_idCuentaEnvia != null)
+            {
+                viewModel.generaTransaccion(montoInt, nota, localFecha, "payment", v_idCuentaEnvia, v_idUsuario, numeroCuentaInt)
 
+                // val firstResult = repository.fetchFirstData()
+                // val secondResult = repository.fetchSecondData()
+
+                // val transaccionCreaMe      = viewModel.generaTransaccion(montoInt, nota, fecha, "payment", v_idCuentaEnvia, v_idUsuario, v_idCuentaEnvia, "-")
+                // val transaccionCreaTercero = viewModel.generaTransaccion(montoInt, nota, fecha, "payment", v_idCuentaEnvia, v_idUsuario, numeroCuentaInt, "+")
+            }
+
+            // Genera la transacción en endpoint Account para el usuario que envía para la actualización de saldo
+            // Genera la transacción en endpoint Account para el usuario que recibe para la actualización de saldo
 
             // Volver a Home
             // Mensaje Transferencia realizada
@@ -70,22 +90,47 @@ class SendMoneyActivity : AppCompatActivity()
             //val abrirPantalla = Intent(this, HomeActivity::class.java)
             //startActivity(abrirPantalla)
         }
-        /*
-        val enviar = findViewById<Button>(R.id.btn_enviardinero)
-        enviar.setOnClickListener {
-            val abrirPantalla = Intent(this, HomeActivity::class.java)
+
+        //Se configura el observador que va a estar observando al sujeto "userList"
+        viewModel.transaccionGeneradaLiveData.observe(this)
+        {
+            transaccionCreada ->
+                //Recibi datos!!! actualizo
+
+                val results = transaccionCreada?.split(" - ")
+                val result1 = results?.get(0)
+                val result2 = results?.get(1)
+                val result3 = results?.get(2)
+                val result4 = results?.get(3)
+
+            Log.d("DvTec", "Resultado Retorno 1 $result1")
+            Log.d("DvTec", "Resultado Retorno 2 $result2")
+            Log.d("DvTec", "Resultado Retorno 3 $result3")
+            Log.d("DvTec", "Resultado Retorno 4 $result4")
+
+            // homeAdapter = HomeAdapter(listTx)
+            // recyclerView.adapter = homeAdapter
+            // Volver a Home
             // Mensaje Transferencia realizada
-            Toast.makeText(this, "Envío de dinero realizado!.", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Envío de dinero realizado correctamente!.", Toast.LENGTH_LONG).show()
+            val abrirPantalla = Intent(this, HomeActivity::class.java)
             startActivity(abrirPantalla)
-            finish()
+
+            // Log.d("DvTec-HomeActivity", "Transacciones obtenidas: $listTx")
         }
-        */
+        // FIN Carga el saldo y los movimientos realizados
 
 
 
 
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun convertToLocalDateViaInstant(dateToConvert: LocalDate): Date {
+        return Date.from(dateToConvert.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant())
+    }
 
 
 }
+
+

@@ -10,10 +10,17 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import vidal.daniel.alkewallet.AlkeWalletApp
 import vidal.daniel.alkewallet.AlkeWalletApp.Companion.usuarioLogeado
 import vidal.daniel.alkewallet.R
 import vidal.daniel.alkewallet.databinding.HomeBinding
+import vidal.daniel.alkewallet.model.CuentaContableResponse
+import vidal.daniel.alkewallet.model.HomeModel
+import vidal.daniel.alkewallet.model.TransaccionModel
 import vidal.daniel.alkewallet.viewmodel.HomeViewModel
+import java.util.Date
 
 
 class HomeActivity : AppCompatActivity()
@@ -47,25 +54,8 @@ class HomeActivity : AppCompatActivity()
         // Configuro el ViewModel
         viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
 
-        // Creo el adaptador con data vacia
-        // homeAdapter = HomeAdapter(emptyList()) // Inicialmente, la lista está vacía
-
-        // Implemento los SharedPreferences
-        //val nombreUsuario = sharedPreferences.getString("nombre", "") + " " + sharedPreferences.getString("apellido", "")
-        //val imgPerfil = sharedPreferences.getString("imgperfil", "")
-        //var correo = sharedPreferences.getString("“usuario", "") // Rescato el usuario logueado
-        // Asigno valor en textview
-        //binding.txtSaludo.text = " Hola " + nombreUsuario + "!"
-        // Asigno imagen de perfil dinámicamente
-        //val imageName = imgPerfil
-        // Obtengo el ID de la imagen
-        //val resourceId = resources.getIdentifier(imageName, "drawable", packageName)
-        // Establecer la imagen de fondo del ImageView
-        //binding.imgPerfil.setImageResource(resourceId)
-
-        // Obtengo datos desde objeto global con los datos del usuario
+         // Obtengo datos desde objeto global con los datos del usuario
         binding.txtSaludo.text = "Hola " + usuarioLogeado?.first_name + " " + usuarioLogeado?.last_name + "!"
-
 
         // Ir a Perfil
         binding.imgPerfil.setOnClickListener {
@@ -73,21 +63,11 @@ class HomeActivity : AppCompatActivity()
             startActivity(winPerfil)
         }
 
-        /*
-        val perfil = findViewById<ImageView>(R.id.img_perfil)
-        perfil.setOnClickListener {
-            val abrirPantalla = Intent(this, ProfileActivity::class.java)
-            startActivity(abrirPantalla)
-            finish()
-        }
-        */
-
         //Se crea el adaptador con data vacia
         homeAdapter = HomeAdapter(emptyList()) // Inicialmente, la lista está vacía
 
         // Las transacciones realizados
-
-        //Se configura el recyclerView
+        // Se configura el recyclerView
         recyclerView = findViewById(R.id.txList)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = homeAdapter
@@ -98,12 +78,28 @@ class HomeActivity : AppCompatActivity()
         //Se configura el observador que va a estar observando al sujeto "userList"
         viewModel.homeTx.observe(this)
         {
-                listTx ->
-            //Recibi datos!!! actualizo
-            homeAdapter = HomeAdapter(listTx)
-            recyclerView.adapter = homeAdapter
+            listTx ->
+                Log.d("DvTec", "Transacciones obtenidas: $listTx")
 
-            Log.d("TransactionViewModel", "Transacciones obtenidas: $listTx")
+                // Filtro TX para mostrar solo las que realicé a terceros
+                //val objetoTx = parseJsonToTx(listTx.toString())
+                //Log.d("DvTec", "Transacciones obtenidas toString: $objetoTx")
+
+                //val idCuentaContableDestino = AlkeWalletApp.vg_idCuentaUsuarioLogueado!!
+                //val txFiltradas  = filtraTx(objetoTx, idCuentaContableDestino)
+
+                //Log.d("DvTec", "Transacciones filtradas toString: $txFiltradas")
+
+                //val idCuentaContableEnvia = AlkeWalletApp.vg_idCuentaUsuarioLogueado!!
+
+                //Log.d("DvTec", "IdCuentaEnvia: $idCuentaContableEnvia")
+
+                // filtrarTxxId(idCuentaContableEnvia)
+
+                //Recibi datos!!! actualizo
+                homeAdapter = HomeAdapter(listTx)
+                recyclerView.adapter = homeAdapter
+
         }
         // FIN Carga el saldo y los movimientos realizados
 
@@ -116,6 +112,7 @@ class HomeActivity : AppCompatActivity()
             saldo ->
             //Recibi datos!!! actualizo
             binding.txtMontototal.text = "$ ${saldo?.firstOrNull()?.money}"
+            AlkeWalletApp.vg_idCuentaUsuarioLogueado = saldo?.firstOrNull()?.id
         }
         // FIN Carga el saldo y los movimientos realizados
 
@@ -149,6 +146,12 @@ class HomeActivity : AppCompatActivity()
 
     }
 
-
+    /*
+    private fun filtrarTxxId(vp_idEnvia: Int)
+    {
+        homeAdapter.filtrarTxbyId(vp_idEnvia)
+    }
+    */
 
 }
+

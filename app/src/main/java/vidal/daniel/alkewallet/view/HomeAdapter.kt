@@ -24,11 +24,15 @@ class HomeAdapter(private val txList: List<TransaccionModel>?) :
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
         val tx = txList?.get(position)
         holder.bind(tx)
+
+        // holder.bind(filtroIdEnvia?.get(position))
     }
 
     override fun getItemCount(): Int
     {
         return txList?.size ?: 0
+
+        // return filtroIdEnvia?.size ?: 0
     }
 
     class HomeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -43,7 +47,6 @@ class HomeAdapter(private val txList: List<TransaccionModel>?) :
         fun bind(tx: TransaccionModel?) {
             // imagenView.setImageResource(R.drawable.dv) -> Agrega imagen desde el drawabe
             //Picasso.get().load(tx.url_imagen).placeholder(R.drawable.dv).error(R.drawable.dv).into(imagenView)
-
             if (tx != null)
             {
                 conceptoTextView.text   = tx.concept
@@ -54,11 +57,18 @@ class HomeAdapter(private val txList: List<TransaccionModel>?) :
         }
 
         fun formatDateToString(date: Date?): String {
-            val dateFormat = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
+            val dateFormat = SimpleDateFormat("dd-MM-yyyy hh:mm", Locale.getDefault())
             return dateFormat.format(date)
         }
-
-
     }
+
+    /*
+    fun filtrarTxbyId(idCuentaEnvia: Int)
+    {
+        filtroIdEnvia = txList?.filter { it.to_account_id == idCuentaEnvia }
+        notifyDataSetChanged()
+    }
+    */
+
 }
 

@@ -10,13 +10,13 @@ class AlkeWalletApp : Application()
 {
     companion object
     {
-        // Objeco usuario global al proyecto
+        // Variables globales
         var usuarioLogeado              : LoginUser? = null
         var tokenAcceso                 : String? = ""
-        var vg_idCuentaUsuarioLogueado  : Int? = null
+        var vg_idCuentaUsuarioLogueado  : Int? = 0
 
         /**
-         * Función para AlertDialog
+         * Función global para AlertDialog
          */
         fun Context.showMessageBox(title: String, message: String)
         {
@@ -37,20 +37,7 @@ class AlkeWalletApp : Application()
         usuarioLogeado              = null
         tokenAcceso                 = ""
         vg_idCuentaUsuarioLogueado  = 0
-
     }
 
-    /*
-    private fun showMessageBox(title: String, message: String)
-    {
-        val builder = AlertDialog.Builder(this)
-        builder.setTitle(title)
-        builder.setMessage(message)
-        builder.setPositiveButton("OK") { dialog, _ ->
-            dialog.dismiss()
-        }
-        val dialog: AlertDialog = builder.create()
-        dialog.show()
-    }*/
 
 }
