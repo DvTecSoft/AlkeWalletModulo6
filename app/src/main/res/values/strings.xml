@@ -27,9 +27,9 @@
     <string name="opciones">Opciones</string>
     <string name="centro_de_ayuda">Centro de ayuda</string>
     <string name="inicio">Inicio</string>
-    <string name="saludo_usuario">Hola, Daniel!</string>
+    <string name="saludo_usuario">Hola!</string>
     <string name="balance_total">Balance Total</string>
-    <string name="monto_total">$124.57</string>
+    <string name="monto_total">$0</string>
     <string name="ultimas_transacciones">Últimas transacciones</string>
     <string name="cantidad_ingresar">Cantidad a ingresar</string>
     <string name="cantidad_transferir">Cantidad a transferir</string>
@@ -51,5 +51,7 @@
     <string name="cuentacontabledestino">Cuenta Contable Destino</string>
     <string name="ingreseCantidad">Ingrese Cantidad</string>
     <string name="ingreseCtaContableDestino">Ingrese Cta. Contable Destino</string>
+    <string name="numCuenta"># Cuenta:</string>
+    <string name="ingrese_cantidad">Ingrese cantidad</string>
 
 </resources>

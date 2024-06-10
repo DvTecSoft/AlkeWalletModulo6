@@ -1,5 +1,6 @@
 package vidal.daniel.alkewallet.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -45,9 +46,16 @@ class LoginViewModel : ViewModel()
     // Variable livedata que indicará si se creó la cuenta contable de un usuario nuevo
     var idCuentaContableLoginLivedata = MutableLiveData<List<CuentaContableModel>?>()
 
+    /*
     val combinedData = MediatorLiveData<Pair<Boolean?, List<CuentaContableModel>?>>().apply {
         addSource(cuentaContableCreadaLiveData) { value = Pair(it, idCuentaContableLoginLivedata.value) }
         addSource(idCuentaContableLoginLivedata) { value = Pair(cuentaContableCreadaLiveData.value, it) }
+    }
+    */
+
+    val combinedData = MediatorLiveData<Pair<Boolean?, List<CuentaContableModel>?>>().apply {
+        addSource(validaCuentaContableLiveData) { value = Pair(it, idCuentaContableLoginLivedata.value) }
+        addSource(idCuentaContableLoginLivedata) { value = Pair(validaCuentaContableLiveData.value, it) }
     }
 
     /**
@@ -162,22 +170,34 @@ class LoginViewModel : ViewModel()
                 // Esta es la instancia de Retrofit
                 var validaCuentaContable = RetrofitInstancia.retrofit.create(CuentaContableService::class.java)
 
+                Log.d("DvTec", "LoginViewModel->En corrutina de validaCuentaContable")
+
                 // Creo variable token
                 val v_token = "Bearer $tokenAcceso"
 
+                Log.d("DvTec", "LoginViewModel->En corrutina de validaCuentaContable")
+
                 val cuentaContableLlamada: Call<List<CuentaContableModel>> = validaCuentaContable.obtenerCuentaContable(v_token) // Funcion desde Service
+
+                Log.d("DvTec", "LoginViewModel->Genera variable cuentaContableLlamada")
 
                 cuentaContableLlamada.enqueue(object : Callback<List<CuentaContableModel>>
                 {
                     override fun onResponse(call: Call<List<CuentaContableModel>>, response: Response<List<CuentaContableModel>>)
                     {
                         var cuentaContable = response.body()
+
+                        Log.d("DvTec", "LoginViewModel->Respueta de llamada: cuentaContable")
+
+
                         if (response.isSuccessful)
                         {
+                            Log.d("DvTec", "LoginViewModel->Dentro de respuesta response.isSuccessful")
+
                             if (cuentaContable?.size == 0)
                             {
+                                Log.d("DvTec", "LoginViewModel->Sin cuenta:  llena validaCuentaContableLiveData.postValue(true) : $cuentaContable")
                                 validaCuentaContableLiveData.postValue(true)
-
                                 idCuentaContableLoginLivedata.postValue(cuentaContable)
 
                             }
@@ -185,6 +205,8 @@ class LoginViewModel : ViewModel()
                             {
                                 validaCuentaContableLiveData.postValue(false)
                                 idCuentaContableLoginLivedata.postValue(cuentaContable)
+
+                                Log.d("DvTec", "LoginViewModel->Con Cuenta: cuentaContable : $cuentaContable")
                             }
                         }
                         else
@@ -235,7 +257,7 @@ class LoginViewModel : ViewModel()
 
                         if (response.isSuccessful)
                         {
-                            if (respuesta?.userId!= null)
+                            if (respuesta?.userId != null)
                             {
                                 cuentaContableCreadaLiveData.postValue(true)
                                 // idCuentaContableLoginLivedata.postValue(respuesta.id)

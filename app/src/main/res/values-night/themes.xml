@@ -3,5 +3,12 @@
     <style name="Base.Theme.AlkeWallet" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+
+        <!--item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/celeste</item--> // set your color here.
+        <item name="android:orientation">vertical</item>
+        <item name="colorPrimary">@color/azul</item>
+
     </style>
 </resources>

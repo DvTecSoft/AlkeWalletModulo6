@@ -10,27 +10,28 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import vidal.daniel.alkewallet.AlkeWalletApp
-import vidal.daniel.alkewallet.model.TransaccionCreaResponse
 import vidal.daniel.alkewallet.model.TransaccionCuentaRequest
 import vidal.daniel.alkewallet.model.TransaccionCuentaResponse
 import vidal.daniel.alkewallet.model.network.RetrofitInstancia
 import vidal.daniel.alkewallet.model.network.TransaccionService
-import java.time.LocalDateTime
 
-class SendMoneyViewModel : ViewModel()
+class RequestMoneyViewModel : ViewModel()
 {
-    // Variables mutableLiveData
-    val transaccionGeneradaLiveData = MutableLiveData<String?>()
+    // Variables MutableLiveData
+    val depositoGeneradoLiveData = MutableLiveData<String?>()
     val errores = MutableLiveData<String>()
 
-    // Genera la transacción en endpoint Transaction para el usuario que envía
-    //fun generaTransaccion(vp_amount: Int, vp_concept: String, vp_date: Date, vp_type: String, vp_accountId:Int, vp_userId: Int, vp_to_account_id: Int, vp_Operador: String)
-    fun generaTransaccion(vp_amount: Int, vp_concept: String, vp_date: LocalDateTime, vp_type: String, vp_accountId:Int, vp_userId: Int, vp_to_account_id: Int)
+    // Genera el depósito en endpoint ACCOUNT para el usuario que envía
+    fun generaDeposito(vpAmount: Int, vpConcept: String, vpNumeroCuentaDestino : Int)
     {
+        Log.d("DvTec", "Entra a funcion generaDeposito")
+
         // Implemento la corutina
         CoroutineScope(Dispatchers.IO).launch {
             try
             {
+                Log.d("DvTec", "Entra a corrutina generaDeposito")
+
                 // Declaro objetos que recibirán las respuesta
                 var transaccionGenerada1 : String? = ""
                 var transaccionGenerada2 : String? = ""
@@ -44,9 +45,13 @@ class SendMoneyViewModel : ViewModel()
                 // Se crea la variable token
                 val v_token = "Bearer ${AlkeWalletApp.tokenAcceso}"
 
-                // Crea TransacciónCuenta para el usuario destinatario para actualizar saldo
+                // Crea TransacciónCuenta para el usuario destinatario
                 // Se crea la variable que va a manejar la respuesta del servicio
-                val v_llamadaApi4 : Call<TransaccionCuentaResponse> = v_GeneraTransaccion.crearTransaccionCuenta(vp_to_account_id,TransaccionCuentaRequest("payment", vp_concept, (vp_amount)*1), v_token)  // Funcion desde Service
+                val v_llamadaApi4 : Call<TransaccionCuentaResponse> = v_GeneraTransaccion.crearTransaccionCuenta(vpNumeroCuentaDestino,
+                    TransaccionCuentaRequest("topup", vpConcept, vpAmount), v_token)  // Funcion desde Service
+
+                Log.d("DvTec", "Asigna v_llamadaApi4 ")
+
                 v_llamadaApi4.enqueue(object : Callback<TransaccionCuentaResponse>
                 {
                     override fun onResponse(call : Call<TransaccionCuentaResponse>, response : Response<TransaccionCuentaResponse>)
@@ -56,7 +61,7 @@ class SendMoneyViewModel : ViewModel()
                         {
                             if (transaccionGenerada4 != null)
                             {
-                                Log.d("DvTec", "transaccionGenerada4 OK ")
+                                Log.d("DvTec", "Request TransaccionGenerada4 OK ")
 
                                 // Si no hay ningún error, procesa
                                 //if (isFailed)
@@ -66,39 +71,34 @@ class SendMoneyViewModel : ViewModel()
                                 //}
                                 // else
                                 // {
-
                                 // Concatenar los resultados y actualizar el LiveData
                                 val finalResult = "$transaccionGenerada1 - $transaccionGenerada2 - $transaccionGenerada3 - $transaccionGenerada4"
-                                transaccionGeneradaLiveData.postValue(finalResult)
+                                depositoGeneradoLiveData.postValue(finalResult)
                                 //}
                             }
                         }
                         else
                         {
                             errores.postValue("Error en la Api 4 - ${response.errorBody().toString()}")
+                            Log.d("DvTec", "Error en la Api 4 - ${response.errorBody().toString()}")
                         }
                     }
 
                     override fun onFailure(call: Call<TransaccionCuentaResponse>, t: Throwable)
                     {
-                        // _txList.postValue(null)
-                        transaccionGeneradaLiveData.postValue(null)
-                        Log.d("DvTec", "onFailure transaccionGenerada4")
+                        depositoGeneradoLiveData.postValue(null)
+                        Log.d("DvTec", "onFailure transaccionGenerada4: $t")
                     }
                 })
-
             }
             catch (e: Exception)
             {
                 // Error
-                transaccionGeneradaLiveData.postValue(null)
+                depositoGeneradoLiveData.postValue(null)
                 Log.d("DvTec", "Error corrutina: $e")
             }
         } // Fin Corutina
 
-
     }
-
-
 
 }

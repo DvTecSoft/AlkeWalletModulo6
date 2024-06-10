@@ -19,7 +19,6 @@ import java.util.Date
 
 class SendMoneyActivity : AppCompatActivity()
 {
-
     // Variable para Binding
     lateinit var binding : SendMoneyBinding
 
@@ -44,6 +43,9 @@ class SendMoneyActivity : AppCompatActivity()
             startActivity(abrirPantalla)
             finish()
         }
+
+        // Al abrir, posiciono el foco en el edit
+        binding.editNumeroCuenta.requestFocus()
 
         // Enviar transferencia y volver al home
         binding.btnEnviarDinero.setOnClickListener {
@@ -115,6 +117,7 @@ class SendMoneyActivity : AppCompatActivity()
             Toast.makeText(this, "Envío de dinero realizado correctamente!.", Toast.LENGTH_LONG).show()
             val abrirPantalla = Intent(this, HomeActivity::class.java)
             startActivity(abrirPantalla)
+            finish()
 
             // Log.d("DvTec-HomeActivity", "Transacciones obtenidas: $listTx")
         }

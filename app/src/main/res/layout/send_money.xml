@@ -45,8 +45,9 @@
         android:id="@+id/imgFotoUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="388dp"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editNumeroCuenta"
         app:srcCompat="@drawable/profile_picture_send" />
@@ -55,13 +56,14 @@
         android:id="@+id/editNombreUsuario"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="112dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="388dp"
         android:width="200dp"
         android:fontFamily="@font/jua"
         android:text="@string/envia_nombre"
         android:textColor="@color/negro"
         android:textSize="14sp"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editNumeroCuenta" />
 
@@ -69,14 +71,15 @@
         android:id="@+id/editMail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="112dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="416dp"
         android:width="200sp"
         android:alpha="0.5"
         android:fontFamily="@font/jua"
         android:text="@string/envia_mail"
         android:textColor="@color/negro"
         android:textSize="12sp"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editNumeroCuenta" />
 
@@ -91,7 +94,7 @@
         android:textColor="@color/negro"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editMail" />
+        app:layout_constraintTop_toBottomOf="@+id/editNumeroCuenta" />
 
     <EditText
         android:id="@+id/editMonto"
@@ -104,6 +107,7 @@
         android:inputType="number|numberSigned"
         android:textColor="@color/verde"
         android:hint="@string/ingreseCantidad"
+        android:textColorHint="@color/cardview_dark_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.377"
         app:layout_constraintStart_toStartOf="parent"
@@ -132,6 +136,7 @@
         android:ems="10"
         android:gravity="start|top"
         android:hint="@string/notas_transferencia_opcional"
+        android:textColorHint="@color/cardview_dark_background"
         android:inputType="textMultiLine"
         android:textColor="@color/negro"
         app:layout_constraintEnd_toEndOf="parent"
@@ -190,6 +195,8 @@
         android:ems="10"
         android:inputType="number"
         android:hint="@string/ingreseCtaContableDestino"
+        android:textColor="@color/negro"
+        android:textColorHint="@color/cardview_dark_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider" />

@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import vidal.daniel.alkewallet.AlkeWalletApp
+import vidal.daniel.alkewallet.AlkeWalletApp.Companion.showMessageBox
 import vidal.daniel.alkewallet.AlkeWalletApp.Companion.tokenAcceso
 import vidal.daniel.alkewallet.AlkeWalletApp.Companion.usuarioLogeado
 import vidal.daniel.alkewallet.AlkeWalletApp.Companion.vg_idCuentaUsuarioLogueado
@@ -71,6 +72,10 @@ class LoginActivity : AppCompatActivity()
                 // Llamar a la api para obtener los datos del usuario en ViewModel
                 viewModel.datosLogin()
             }
+            else
+            {
+                Toast.makeText(this, "Usuario/Password incorrectas. Valide y reintente", Toast.LENGTH_LONG).show()
+            }
         }
         // FIN Observa respuesta del token del usuario logueado
 
@@ -84,40 +89,36 @@ class LoginActivity : AppCompatActivity()
                 // Actualizo objeto UsuarioLogueado variable global
                 usuarioLogeado = usuario
 
+                Log.d("DvTec", "LoginActivity->ir a Valida CuentaContable: viewModel.validaCuentaContable()")
                 // Valido si el usuario no tiene cuenta, la crea automáticamente
                 // Llamar a la api para revisar no tiene cuenta en ViewModel
                 viewModel.validaCuentaContable()
-
-                /*
-                // Habilito la pantalla
-                val abrirPantalla = Intent(this, HomeActivity::class.java)
-
-                // Agrego parámetros a pantalla
-                //abrirPantalla.putExtra("nombre", first_name.toString())
-                //abrirPantalla.putExtra("apellido", last_name.toString())
-
-                // Carga pantalla
-                startActivity(abrirPantalla)
-                */
 
             }
         }
         // FIN Observa respuesta de los datos del usuario logueado
 
+        /*
         // Observa el MediatorLiveData
         viewModel.combinedData.observe(this, Observer { combined ->
             val data1 = combined.first
             val data2 = combined.second
             // Actualiza la UI con data1 y data2
         })
+        */
 
         viewModel.combinedData.observe(this, Observer {
             combined ->
-                val sincuentacontable = combined.first
-                val datosCuentaContableLogin = combined.second
+                val sincuentacontable           = combined.first
+                val datosCuentaContableLogin    = combined.second
+
+                Log.d("DvTec", "LoginActivity->Entra en observador combinedData: $combined")
+                Log.d("DvTec", "LoginActivity->sincuentacontable: $sincuentacontable")
+                Log.d("DvTec", "LoginActivity->datosCuentaContableLogin: $datosCuentaContableLogin")
 
                 if (sincuentacontable == true) // No tiene cuenta
                 {
+                    Log.d("DvTec", "LoginActivity->ir a Crear cuenta: viewModel.crearCuentaContable()")
                     // Llamar a la api para obtener los datos del usuario en ViewModel
                     viewModel.crearCuentaContable()
                 }
@@ -134,9 +135,7 @@ class LoginActivity : AppCompatActivity()
                     // Carga pantalla
                     startActivity(abrirPantalla)
                     finish()
-
                 }
-
         })
 
         // Observa respuesta de la validación de la cuenta contable
@@ -162,11 +161,11 @@ class LoginActivity : AppCompatActivity()
 
         // Ir a Olvidaste tu contraseña
         binding.txtOlvidaste.setOnClickListener {
-            val abrirPantalla = Intent(this, RememberPasswordActivity::class.java)
-            startActivity(abrirPantalla)
+            Toast.makeText(this, "Opción en mantención. Pronto la podrás usar!", Toast.LENGTH_SHORT).show()
+
+            //val abrirPantalla = Intent(this, RememberPasswordActivity::class.java)
+            //startActivity(abrirPantalla)
         }
-
-
     }
     // FIN OnCreate
 

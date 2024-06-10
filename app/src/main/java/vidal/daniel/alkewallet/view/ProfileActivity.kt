@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
+import android.widget.Toast
 import vidal.daniel.alkewallet.AlkeWalletApp.Companion.usuarioLogeado
 import vidal.daniel.alkewallet.R
 import vidal.daniel.alkewallet.databinding.LoginSignupPageBinding
@@ -45,6 +46,27 @@ class ProfileActivity : AppCompatActivity()
         // Obtengo datos desde objeto global con los datos del usuario
         var nombreUsuario = usuarioLogeado?.first_name + " " + usuarioLogeado?.last_name
         binding.editNombreUsuario.text = nombreUsuario
+
+
+        // Clic botón Mi Información
+        binding.btnMiinformacion.setOnClickListener {
+            Toast.makeText(this, "Opción en mantención. Pronto la podrás usar!", Toast.LENGTH_SHORT).show()
+        }
+
+        // Clic botón Mis Tarjetas
+        binding.btnMistarjetas.setOnClickListener {
+            Toast.makeText(this, "Opción en mantención. Pronto la podrás usar!", Toast.LENGTH_SHORT).show()
+        }
+
+        // Clic botón Opciones
+        binding.btnOpciones.setOnClickListener {
+            Toast.makeText(this, "Opción en mantención. Pronto la podrás usar!", Toast.LENGTH_SHORT).show()
+        }
+
+        // Clic botón Centro de ayuda
+        binding.btnCentroDeAyuda.setOnClickListener {
+            Toast.makeText(this, "Opción en mantención. Pronto la podrás usar!", Toast.LENGTH_SHORT).show()
+        }
 
         // Ir a Home
         binding.imgAtras.setOnClickListener {

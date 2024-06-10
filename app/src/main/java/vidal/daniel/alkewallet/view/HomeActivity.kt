@@ -111,6 +111,7 @@ class HomeActivity : AppCompatActivity()
         {
             saldo ->
             //Recibi datos!!! actualizo
+            binding.txtCuentacontable?.text = "# Cuenta: ${AlkeWalletApp.vg_idCuentaUsuarioLogueado}"
             binding.txtMontototal.text = "$ ${saldo?.firstOrNull()?.money}"
             AlkeWalletApp.vg_idCuentaUsuarioLogueado = saldo?.firstOrNull()?.id
         }

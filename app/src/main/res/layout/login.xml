@@ -18,6 +18,7 @@
         android:width="315sp"
         android:fontFamily="@font/jua"
         android:text="@string/logea_y_comienza"
+        android:textColor="@color/negro"
         android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,7 +28,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="315dp"
-        android:layout_height="78dp"
+        android:layout_height="100dp"
         android:layout_marginTop="282dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,14 +38,15 @@
             android:id="@+id/lbl_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/email"
             android:fontFamily="@font/jua"
+            android:text="@string/email"
+            android:textColor="@color/negro"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="0dp"
-            android:layout_height="49dp"
+            android:layout_height="55dp"
             android:layout_marginTop="25dp"
             app:boxBackgroundColor="@android:color/white"
             app:hintEnabled="false"
@@ -55,10 +57,12 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txt_email"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:hint="@string/ingresa_tu_mail"
                 android:inputType="textEmailAddress"
-                android:textSize="14sp"
+                android:textColor="@color/negro"
+                android:textColorHint="@color/cardview_dark_background"
+                android:textSize="16sp"
                 tools:layout_editor_absoluteX="83dp"
                 tools:layout_editor_absoluteY="333dp" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -69,7 +73,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="315dp"
         android:layout_height="102dp"
-        android:layout_marginTop="384dp"
+        android:layout_marginTop="400dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -78,15 +82,16 @@
             android:id="@+id/lbl_clave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/contrasena"
             android:fontFamily="@font/jua"
+            android:text="@string/contrasena"
+            android:textColor="@color/negro"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout"
             android:layout_width="0dp"
-            android:layout_height="49sp"
+            android:layout_height="55dp"
             android:layout_marginTop="25dp"
             app:boxBackgroundColor="@android:color/white"
             app:endIconMode="password_toggle"
@@ -98,11 +103,14 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txt_clave"
-                android:layout_width="315dp"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:height="200dp"
                 android:hint="@string/ingresa_tu_contrasena"
                 android:inputType="textPassword"
-                android:textSize="14sp"
+                android:textColor="@color/negro"
+                android:textColorHint="@color/cardview_dark_background"
+                android:textSize="16sp"
                 tools:layout_editor_absoluteX="83dp"
                 tools:layout_editor_absoluteY="333dp" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -119,9 +127,10 @@
             android:height="18dp"
             android:fontFamily="@font/jua"
             android:text="@string/olvidaste_tu_contrasena"
+            android:textColor="@color/negro"
             app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/lbl_clave"/>
+            app:layout_constraintStart_toEndOf="@+id/lbl_clave" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
