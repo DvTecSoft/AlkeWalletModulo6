@@ -125,7 +125,6 @@ class SendMoneyActivity : AppCompatActivity()
 
 
 
-
     }
 
     @RequiresApi(Build.VERSION_CODES.O)

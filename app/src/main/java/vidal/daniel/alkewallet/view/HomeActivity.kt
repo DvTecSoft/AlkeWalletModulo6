@@ -121,12 +121,14 @@ class HomeActivity : AppCompatActivity()
         binding.btnEnviarDinero.setOnClickListener {
             val winSendMoney = Intent(this, SendMoneyActivity::class.java)
             startActivity(winSendMoney)
+            finish()
         }
 
         // Ir a Ingresar Dinero
         binding.btnIngresardinero.setOnClickListener {
             val winRequestMoney = Intent(this, RequestMoneyActivity::class.java)
             startActivity(winRequestMoney)
+            finish()
         }
 
         // Ir a Login -> Cerrar Sesión
