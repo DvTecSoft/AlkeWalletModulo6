@@ -16,7 +16,7 @@
 ***by DvTec.cl***
 
 - GitHub  : [@user](https://github.com/DvTecSoft)
-- LinkedIn: [https://www.linkedin.com/in/daniel-alejandro-vidal-figueroa-58108a51/]
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/daniel-alejandro-vidal-figueroa-58108a51) 
 
 ## 🤝 Contributing
 
