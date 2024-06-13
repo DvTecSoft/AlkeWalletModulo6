@@ -4,6 +4,9 @@
 > Cuenta con el registro del usuario y al logearse se crea una cuenta bancaria automáticamente.
 > Utiliza token de acceso, accede a Api en diferentes endpoints, muestra el detalle de transacciones.
 
+## Curso:
+> Realizado para curso de Sence, **desarrollo de aplicaciones Android Trainee, Jun2024**
+
 ## Herramientas, métodos, tecnología utilizadas: 
 - Kotlin
 - Room
