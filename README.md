@@ -15,7 +15,7 @@
 👤 **Daniel Vidal F.**
 ***by DvTec.cl***
 
-- GitHub  : [https://github.com/DvTecSoft]
+- GitHub  : [@user](https://github.com/DvTecSoft)
 - LinkedIn: [https://www.linkedin.com/in/daniel-alejandro-vidal-figueroa-58108a51/]
 
 ## 🤝 Contributing
